@@ -197,3 +197,6 @@ dmypy.json
 # Cython debug symbols
 cython_debug/
 /.quarto/
+
+# ignore site directory
+/_site/
