@@ -1,6 +1,6 @@
 ---
-title: "Post With Code"
-author: "Harlow Malloc"
+title: "My First Post"
+author: "Louis Becker"
 date: "2023-03-08"
 categories: [news, code, analysis]
 image: "image.jpg"
@@ -18,4 +18,14 @@ eh
 
 ```{r}
 1+1
+```
+
+adding something else
+
+```{r}
+plot(mtcars[c(3,4)])
+```
+
+```{python}
+1+1*3
 ```
