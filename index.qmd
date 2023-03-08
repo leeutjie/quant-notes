@@ -1,5 +1,5 @@
 ---
-title: "test"
+title: "Notes to Myself"
 listing:
   contents: posts
   sort: "date desc"
