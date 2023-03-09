@@ -4,16 +4,16 @@ image: profile.jpg
 about:
   template: jolla
   links:
-    - icon: twitter
-      text: Twitter
-      href: https://twitter.com
+    # - icon: twitter
+    #   text: Twitter
+    #   href: https://twitter.com
     - icon: linkedin
       text: LinkedIn
-      href: https://linkedin.com
+      href: https://www.linkedin.com/in/louis-becker-1b7403a1
     - icon: github
       text: Github
-      href: https://github.com
+      href: https://github.com/leeutjie?tab=repositories
 
 ---
 
-About this blog
+This blog is all about notes to myself. I record golden nuggets of information and tips that I have learnt, and how-to processes that I want to remember in future. This blog is all about code, data science and quantitative finance.
