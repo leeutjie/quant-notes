@@ -1,7 +1,7 @@
 
-![Repository's Stats](https://github-readme-stats.vercel.app/api?username=Your_GitHub_Username&show_icons=true)
+![Repository's Stats](https://github-readme-stats.vercel.app/api?username=leeutjie&show_icons=true)
 
-![Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=Your_GitHub_Username&theme=blue-green)
+![Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=leeutjie&theme=blue-green)
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/cb3c5097-90ad-4cf9-ae6b-68963879ae4c/deploy-status)](https://app.netlify.com/sites/leeutjie/deploys)
 
