@@ -4,9 +4,9 @@ image: profile.jpg
 about:
   template: jolla
   links:
-    # - icon: twitter
-    #   text: Twitter
-    #   href: https://twitter.com
+    - icon: twitter
+      text: Twitter
+      href: https://twitter.com/leeutjie98
     - icon: linkedin
       text: LinkedIn
       href: https://www.linkedin.com/in/louis-becker-1b7403a1
@@ -16,4 +16,4 @@ about:
 
 ---
 
-This blog is all about notes to myself. I record golden nuggets of information and tips that I have learnt, and how-to processes that I want to remember in future. This blog is all about code, data science and quantitative finance.
+This blog is all about notes to myself about code, data science and quantitative finance. I record golden nuggets of information and tips that I have learnt, and how-to processes that I might want to refer back to. The idea behind each blog is to offer concise, cheat sheet-like advice for future self. In this blog I give no context or explanation beyond what is useful to me for any other reader. This is a selfish blog, but I'm really nice. Promise.
