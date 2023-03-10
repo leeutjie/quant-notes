@@ -1,0 +1,69 @@
+---
+title: "Practical Notes: Advances in Financtial Machine Learning Chapters 1-3 - Work in Progress"
+author: "Louis Becker"
+date: "2023-03-08"
+categories: [machine learning, code, python, finance, quant]
+image: "image.jpg"
+---
+
+## Introduction
+
+This is the first of a series of blog posts summarising chapters from Advances in [Financial Machine Learning](https://www.wiley.com/en-us/Advances+in+Financial+Machine+Learning-p-9781119482086) by [Marcos Lopez de Prado](https://twitter.com/lopezdeprado). The only aim here is to condense knowledge and insights into almost cheatsheet-like nuggets that I can reference back to when I need them. I do not offer context or expalanations beyond what makes sense to me. I shamelessly and liberally borrow his notation and texts for coherency. 
+
+## Sampling Features
+
+It is useful to think about sampling strategies when applying machine-learning algorithms in finance for two reasons: First, several ML algorithms do not scale well with sample size (e.g., SVMs). Second, ML algorithms achieve highest accuracy when they attempt to learn from relevant examples. We will try to look at some palatable ways of sampling bars to produce a features matrix with relevant training examples.
+
+### The CUSUM Filter
+
+The CUSUM filter is a quality-control method, designed to detect a shift in the mean value of a measured quantity away from a target value. If we consider a set of independently and identically distributed ($iid$) observations $\{y_t\}_{t=1,...,T}$, we can define the cumulative sums as
+
+$$S_t = max\{0, S_{t-1} + y_t - E_{t-1}[y_t]\}$$
+
+with boundary condition $S_0 = 0$. This procedure would recommend an action at the first $t$ satisfying $S_t \geq h$, for some some threshold $h$ (referred to as the filter size). It implies that $S_t = 0$ whenever $y_t \leq E_{t-1}[y_t] - S_{t-1}$. This zero floor means that we will skip some downward deviations that otherwise would make $S_t$ negative. The reason is, the filter is set up to identify a sequence of upside divergences from any reset level zero. 
+
+The threshold is activated when 
+
+$$S_t \geq h \iff \exists \tau \in [1,t] | \sum$$
+
+
+We will sample a bar $t$ if and only if $S_t \geq h$, at which point $S_t$ is reset. Let's examine an implementation where $E_{t-1}[y_t] = t_{t-1}$
+
+```{python}
+import pandas as pd
+import numpy as np
+import datetime
+import Labels
+import importlib
+importlib.reload(Labels)
+from sklearn.model_selection import train_test_split
+```
+
+```{python}
+# | include: false
+
+from ppym import pimdb
+
+db_engine = pimdb.create_engine_pim(
+    driver='mysql+pymysql',
+    host='pim-cpt-mysql-prod.prescient.local',
+    port=3307,
+    database='prime_eav',
+    username='read.only',
+    password='read.only'
+)
+
+df = pimdb.get_series(
+    ['SPX Index'],
+    ['PX_last'], 
+    start_date=datetime.date(2003, 1, 1),
+    end_date=datetime.date(2005, 1, 1),
+    list_source_codes=['BB'],
+    db_engine=db_engine
+)
+```
+
+
+```{python}
+df
+```
